@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "https://www.thymeleaf.org/dtd/xhtml1-strivt-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Professor</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+      <h1>Novo Professor</h1>
+          <form action = "/professores" method="POST">
+            <div class="mb-3">
+                  <label class="form-label">Nome</Label>
+                  <input class="form-control" type="text" nome="nome">
+                  <div></div>
+            </div>
+            <div class="mb-3">
+                  <label class="form-label">Salário</Label>
+                  <input class="form-control" type="text" nome="salario">
+                  <div></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Status</Label>
+              <select class = "form-select" nome="statusProfessor">
+
+                  <option th:each="status : ${statusProfessor}"
+                          th.value="${status}" th:text="${status}"></option>
+              </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Submeter</button>
+            <a href="javascript:history.back()">Voltar</a>
+          </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
