@@ -1,49 +1,46 @@
 <!DOCTYPE html SYSTEM "https://www.thymeleaf.org/dtd/xhtml1-strivt-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Professores</title>
-</head>
+<head th:replace="~{fragmentos :: head('Lista de Professores')}"></head>
 <body>
 
 <div class="container">
     <div class="row">
-       <h1>Lista de Professores</h1>
+        <h1>Lista de Professores</h1>
     </div>
 </div>
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-hover">
-                <thread>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Salário</th>
-                        <th scope="col">Status</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thread>
-                <tbody>
-
-                <tr th:each="professor : ${professores}">
-                    <th class="col-1" scope="row" th:text="${professor.getId()}">ID</th>
-                    <td class="col-4" th:text="${professor.nome}">Nome do Professor</td>
-                    <td class="col-2" th:text="${professor.salario}">Salário</td>
-                    <td class="col-2" th:text="${professor.statusProfessor.toString()}">STATUS</td>
-                    <td class="col-1"><a href="#">Detalhes</a></td>
-                    <td class="col-1"><a href="#">Editar</a></td>
-                    <td class="col-1"><a href="#">Deletar</a></td>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-hover">
+            <thread>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Salário</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
-                </tbody>
-            </table>
-        </div>
+            </thread>
+            <tbody>
+
+            <tr th:each="professor : ${professores}">
+                <th class="col-1" scope="row" th:text="${professor.getId()}">ID</th>
+                <td class="col-4" th:text="${professor.nome}">Nome do Professor</td>
+                <td class="col-2" th:text="${professor.salario}">Salário</td>
+                <td class="col-2" th:text="${professor.statusProfessor.toString()}">STATUS</td>
+                <td class="col-1"><a href="#">Detalhes</a></td>
+                <td class="col-1"><a href="#">Editar</a></td>
+                <td class="col-1"><a href="#">Deletar</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="row">
-        <a href="/professor/new">Novo Professor</a>
-    </div>
+</div>
+<div class="row">
+    <a href="/professores/new">Novo Professor</a>
+</div>
 </div>
 </body>
 </html>
