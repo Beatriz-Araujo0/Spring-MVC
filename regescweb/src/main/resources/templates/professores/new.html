@@ -2,34 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragmentos :: head('Novo Professor')}"></head>
 <body>
+<header th:replace="~{fragmentos :: header('Novo Professor')}"></header>
+<div th:replace="~{professores/fragmentos :: form(requisicaoFormProfessor, '/professores')}">Formulário!</div>
 
-<div class="container">
-    <div class="row">
-      <h1>Novo Professor</h1>
-          <form th:object="${requisicaoNovoProfessor}" action = "/professores" method="POST">
-            <div class="mb-3">
-                  <label class="form-label">Nome do Professor</Label>
-                  <input class="form-control" th:errorclass="is-invalid" type="text"  th:field="*{nome}">
-                  <div class="invalid-feedback" th:errors="*{nome}"></div>
-            </div>
-            <div class="mb-3">
-                  <label class="form-label">Salário</Label>
-                  <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{salario}">
-                  <div class="invalid-feedback" th:errors="*{salario}"></div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Status</Label>
-              <select class = "form-select" th:field="*{statusProfessor}">
-
-                  <option th:each="status : ${listaStatusProfessor}"
-                          th.value="${status}" th:text="${status}"></option>
-              </select>
-            </div>
-            <button class="btn btn-primary" type="submit">Submeter</button>
-            <a href="javascript:history.back()">Voltar</a>
-          </form>
-    </div>
-</div>
-</div>
 </body>
 </html>

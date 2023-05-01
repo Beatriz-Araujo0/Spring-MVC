@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 // É uma Classe DTO(Data Transfer Object)
-public class RequisicaoNovoProfessor {
+public class RequisicaoFormProfessor {
     @NotBlank
     @NotNull
     private String nome; // em caso de erro, NotBlank.requisicaoNovoProfessor.nome
